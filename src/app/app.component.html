@@ -1,0 +1,44 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Angular Assignment</title>
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css"> -->
+      <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script> -->
+    </head>
+    <body>
+      <nav class="navbar is-primary">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="#" style="font-weight:bold;">
+              Angular Assignment
+            </a>
+            <span class="navbar-burger burger" data-target="navMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navMenu" class="navbar-menu">
+            <div class="navbar-end">
+              <a routerLink="/screen1" class="navbar-item">Data Charts</a>
+              <a routerLink="/screen2" class="navbar-item">Dynamic Charts</a>
+              <a routerLink="/screen3" class="navbar-item">String Manipulation</a>
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+      <router-outlet></router-outlet>
+    </body>
+  </html>
+<!-- 
+<app-parent1></app-parent1>
+
+
+<app-parent2></app-parent2>
+
+
+<app-parent3></app-parent3> -->
+
+

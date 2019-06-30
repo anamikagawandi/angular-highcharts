@@ -1,0 +1,54 @@
+<!-- <p>parent1 works!</p>
+
+<p>Selected option: {{ selectedOption }}</p> -->
+
+<div id='center'>
+    <div class="field">
+        <div class="control">
+          <div class="select is-success">
+            <select (change)=enableFilter() [(ngModel)]="selectedOption">
+              <option *ngFor="let filter of filters" [value]="filter.value">{{filter.viewValue}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+          <div class="control">
+            <div class="select is-success">
+              <select [disabled]="flag" (change)=submit() [(ngModel)]="selectedValue">
+                <option *ngFor="let values of filtersValues" [value]="values.value">{{values.viewValue}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+<!-- <select (change)=enableFilter() [(ngModel)]="selectedOption">
+    <option *ngFor="let filter of filters" [value]="filter.value">
+      {{filter.viewValue}}
+    </option>
+</select> -->
+<!-- 
+<select [disabled]="flag" (change)=submit() [(ngModel)]="selectedValue">
+    <option *ngFor="let values of filtersValues" [value]="values.value">
+      {{values.viewValue}}
+    </option>
+</select> -->
+
+</div>
+
+<div id="components">
+
+<app-bar></app-bar>
+
+<app-pie></app-pie>
+</div>
+<div id="components">
+<app-column></app-column>
+<app-donut></app-donut>
+
+</div>
+
+
+
+
