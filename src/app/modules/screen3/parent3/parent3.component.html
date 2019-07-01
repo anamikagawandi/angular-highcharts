@@ -3,11 +3,13 @@
 <div> 
   <table class="table">
     <thead>
-     <td><form><div class="field">
-      <div class="control">
-        <input class="input is-success" type="text" #textValue  placeholder="Enter Text">
-      </div>
-    </div></form>
+     <td>
+       <!-- <form><div class="field">
+      <div class="control"> -->
+          <!-- ng-paste="style='arial'" [ngStyle]="{'font-style': 'normal','font-family': style}" -->
+        <input  class="input is-success" type="text" #textValue  placeholder="Enter Text">
+      <!-- </div>
+    </div></form> -->
   </td>
   <td>
     <a class="button is-primary" (click)=calculate(textValue.value)>Go</a>

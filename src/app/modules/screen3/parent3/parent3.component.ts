@@ -15,6 +15,11 @@ export class Parent3Component implements OnInit {
 
   constructor() { }
 
+  // convert(plain)
+  // {
+  //    console.log(plain);
+  //   }
+
   getWordCount(str) {
     return str.split(" ").length;
   }

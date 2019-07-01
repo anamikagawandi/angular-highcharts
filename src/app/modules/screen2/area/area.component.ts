@@ -14,6 +14,7 @@ export class AreaComponent implements OnInit {
     subscription: Subscription;
     arr_line=[];
     charts:Highcharts.Chart;
+    dataArray=data;
 
     constructor(private pubServ : RandomNumberService)    {
      
@@ -54,9 +55,7 @@ export class AreaComponent implements OnInit {
                     }
                 }
             },
-            tooltip: {
-                pointFormat: '{series.name} has revenue <b>{point.y:,.0f}</b><br/>warheads in {point.x}'
-            },
+            
             plotOptions: {
                 series: {
                     label: {
@@ -76,12 +75,19 @@ export class AreaComponent implements OnInit {
 
   ngOnInit() {
 
-    data.forEach((e)=>{
-        if(e["Company"]="Zoomzone"){
-        this.arr_line.push(parseInt(e["Revenue"]))
-        //console.log(this.arr)
-    }
-      });
+    // this.dataArray.forEach((e)=>{
+    //     if(e["Company"]="Zoomzone"){
+    //     this.arr_line.push(parseInt(e["Revenue"]))
+    //     //console.log(this.arr)
+    // }
+    //   });
+    for (let i = 0; i < this.dataArray.length; i++) {
+        if (this.dataArray[i]["Company"] == "Zoomzone") {
+          this.arr_line.push(parseInt(this.dataArray[i]["Revenue"]))
+        }
+      }
+    //   console.log("data"+JSON.stringify(data))
+    //   console.log("data array"+JSON.stringify(this.dataArray))  
       this.createChart();
     
   }

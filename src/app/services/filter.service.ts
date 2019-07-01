@@ -18,6 +18,7 @@ export class FilterService {
 
   arrCompanies = [];
   arr = [];
+  dataArray=data;
 
   constructor() { }
 
@@ -26,21 +27,21 @@ export class FilterService {
 
     this.arrCompanies = [];
     this.arr = [];
-    let newData = data;
-    console.log("data" + JSON.stringify(data));
-    console.log("filter " + JSON.stringify(filter))
+    let newData = this.dataArray;
+    // console.log("data" + JSON.stringify(this.dataArray));
+    // console.log("filter " + JSON.stringify(filter))
     if (filter) {
-      newData = data.filter((e) => {
-        console.log("category" + e[filter["category"]])
-        console.log("filterParamenter" + JSON.stringify(filter))
-        console.log("option" + filter["option"])
+      newData = this.dataArray.filter((e) => {
+        // console.log("category" + e[filter["category"]])
+        // console.log("filterParamenter" + JSON.stringify(filter))
+        // console.log("option" + filter["option"])
         return e[filter["category"]] == filter["option"]
       });
     }
 
 
 
-    console.log("after filter" + JSON.stringify(newData))
+    // console.log("after filter" + JSON.stringify(newData))
     this.arrCompanies = newData.reduce(function (a, d) {
       if (a.indexOf(d["Company"]) === -1 && d["Company"]) {
         a.push(d["Company"]);
@@ -48,7 +49,7 @@ export class FilterService {
       return a;
     }, []);
 
-    console.log("companies"+JSON.stringify(this.arrCompanies))
+    // console.log("companies" + JSON.stringify(this.arrCompanies))
 
     this.arrCompanies.forEach((e) => {
       let temp = 0;
@@ -65,7 +66,7 @@ export class FilterService {
 
     //console.log(JSON.stringify(data))
     //console.log(JSON.stringify(newData));
-    console.log("revenue"+JSON.stringify(this.arr))
+    console.log("revenue" + JSON.stringify(this.arr))
 
     let v = {
       "companies": [],
@@ -83,16 +84,16 @@ export class FilterService {
       c.name = this.arrCompanies[i];
       c.y = this.arr[i];
       v.charts.push(c)
-      console.log("service v:" + JSON.stringify(v))
+      // console.log("service v:" + JSON.stringify(v))
     }
 
-    console.log("filter data " + JSON.stringify(v))
+    // console.log("filter data " + JSON.stringify(v))
     this.initialData.next(v);
   }
 
 
   public getFilterData(filter) {
-    let filtered_data = data.reduce(function (a, d) {
+    let filtered_data = this.dataArray.reduce(function (a, d) {
       if (a.indexOf(d[filter]) === -1 && d[filter]) {
         a.push(d[filter]);
       }
